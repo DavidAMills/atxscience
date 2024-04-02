@@ -1,0 +1,21 @@
+{
+    "name": "AtmoVision Progessive Web Application",
+    "short_name": "AtmoVision",
+    "start_url": "index.html?utm_source=homescreen",
+    "scope": "./",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#313131",
+    "background_color": "#313131",
+    "display": "standalone"
+}
