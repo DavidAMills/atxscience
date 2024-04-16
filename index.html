@@ -30,6 +30,50 @@
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
 
+    <style>
+      #dynamic-text {
+        transition: opacity 0.5s ease-in-out;
+        opacity: 0;
+      }
+
+      #dynamic-text.fade-in {
+        opacity: 1;
+      }
+    </style>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const definitions = [
+          { term: "Sustainability", definition: "/səˌstānəˈbilədē/ - noun - The practice of using natural resources responsibly to meet current needs without compromising the ability of future generations." },
+          { term: "Innovation", definition: "/ˌinəˈvāSH(ə)n/ - noun - The action or process of innovating; a new method, idea, product, etc." },
+          { term: "Technology", definition: "/tekˈnäləjē/ - noun - The application of scientific knowledge for practical purposes, especially in industry." },
+          { term: "Resilience", definition: "/rəˈzilyəns/ - noun - The capacity to recover quickly from difficulties; toughness." }
+        ];
+
+        let currentIndex = 0;
+        const textElement = document.getElementById('dynamic-text');
+
+        function updateText() {
+          const item = definitions[currentIndex];
+          textElement.textContent = `${item.term} ${item.definition}`;
+          currentIndex = (currentIndex + 1) % definitions.length;
+        }
+
+        setInterval(updateText, 4000); // Update text every 4000 milliseconds (4 seconds)
+        updateText(); // Initial text update
+      });
+
+      function updateText() {
+        textElement.classList.remove('fade-in');
+        setTimeout(() => {
+          const item = definitions[currentIndex];
+          textElement.textContent = `${item.term} ${item.definition}`;
+          textElement.classList.add('fade-in');
+          currentIndex = (currentIndex + 1) % definitions.length;
+        }, 500); // wait for the fade-out transition
+      }
+    </script>
+
   </head>
 
   <body id="page-top">
@@ -81,7 +125,7 @@
         <div class="row">
           <div class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase">Services</h2>
-            <h3 class="section-subheading text-muted">ecology /ēˈkäləjē/ - noun - The scientific study of the relationships between living things and their environments.</h3>
+            <h3 class="section-subheading text-muted" id="dynamic-text">Loading...</h3>
           </div>
         </div>
         <div class="row text-center">
