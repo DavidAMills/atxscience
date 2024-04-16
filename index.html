@@ -31,48 +31,49 @@
     <link href="css/agency.min.css" rel="stylesheet">
 
     <style>
-      #dynamic-text {
-        transition: opacity 0.5s ease-in-out;
-        opacity: 0;
-      }
+    #dynamic-text {
+    color: #000000; /* Ensures the text is black */
+    transition: opacity 0.5s ease-in-out;
+    min-height: 100px; /* Sets a minimum height */
+    display: flex;
+    align-items: center; /* Centers text vertically */
+    justify-content: center; /* Centers text horizontally */
+    opacity: 0; /* Starts as transparent */
+    font-size: 1rem; /* Ensures reasonable font size */
+    z-index: 10; /* Brings text to the front */
+    }
 
-      #dynamic-text.fade-in {
-        opacity: 1;
-      }
+    #dynamic-text.fade-in {
+    opacity: 1; /* Fully opaque when the class is added */
+    }
     </style>
 
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const definitions = [
-          { term: "Sustainability", definition: "/səˌstānəˈbilədē/ - noun - The practice of using natural resources responsibly to meet current needs without compromising the ability of future generations." },
-          { term: "Innovation", definition: "/ˌinəˈvāSH(ə)n/ - noun - The action or process of innovating; a new method, idea, product, etc." },
-          { term: "Technology", definition: "/tekˈnäləjē/ - noun - The application of scientific knowledge for practical purposes, especially in industry." },
-          { term: "Resilience", definition: "/rəˈzilyəns/ - noun - The capacity to recover quickly from difficulties; toughness." }
-        ];
+  document.addEventListener('DOMContentLoaded', function() {
+    const definitions = [
+      { term: "Sustainability", definition: "/səˌstānəˈbilədē/ - noun - The practice of using natural resources responsibly to meet current needs without compromising the ability of future generations." },
+      { term: "Innovation", definition: "/ˌinəˈvāSH(ə)n/ - noun - The action or process of innovating; a new method, idea, product, etc." },
+      { term: "Technology", definition: "/tekˈnäləjē/ - noun - The application of scientific knowledge for practical purposes, especially in industry." },
+      { term: "Resilience", definition: "/rəˈzilyəns/ - noun - The capacity to recover quickly from difficulties; toughness." }
+    ];
 
-        let currentIndex = 0;
-        const textElement = document.getElementById('dynamic-text');
+    let currentIndex = 0;
+    const textElement = document.getElementById('dynamic-text');
 
-        function updateText() {
-          const item = definitions[currentIndex];
-          textElement.textContent = `${item.term} ${item.definition}`;
-          currentIndex = (currentIndex + 1) % definitions.length;
-        }
+    function updateText() {
+      textElement.classList.remove('fade-in');
+      setTimeout(() => {
+        const item = definitions[currentIndex];
+        textElement.textContent = `${item.term} ${item.definition}`;
+        textElement.classList.add('fade-in');
+        currentIndex = (currentIndex + 1) % definitions.length;
+      }, 500); // Short delay before the text changes to allow fade out
+    }
 
-        setInterval(updateText, 4000); // Update text every 4000 milliseconds (4 seconds)
-        updateText(); // Initial text update
-      });
-
-      function updateText() {
-        textElement.classList.remove('fade-in');
-        setTimeout(() => {
-          const item = definitions[currentIndex];
-          textElement.textContent = `${item.term} ${item.definition}`;
-          textElement.classList.add('fade-in');
-          currentIndex = (currentIndex + 1) % definitions.length;
-        }, 500); // wait for the fade-out transition
-      }
-    </script>
+    setInterval(updateText, 7000); // Update text every 4000 milliseconds (4 seconds)
+    updateText(); // Initial text update
+  });
+</script>
 
   </head>
 
@@ -151,7 +152,7 @@
               <i class="fas fa-wifi fa-stack-1x fa-inverse"></i>
             </span>
             <h4 class="service-heading">Smart Networks</h4>
-            <p class="text-muted">AtmoVision uses leading-edge technologies to develop smart networks.  We can build customized sensors to measure pollutants for any air quality related project.  A custom built sensor can deliver real-time data by utilizing existing wireless infrastructure.  Or, we can deploy a very low-cost and reliable wireless network that maximizes the data gathering potential of your geographic area!</p>
+            <p class="text-muted">ATX Science uses leading-edge technologies to develop smart networks.  We can build customized sensors to measure applicable criteria for any project.  A custom built sensor can deliver real-time data by utilizing existing wireless infrastructure.  Or, we can deploy a customized and reliable wireless network that maximizes the data gathering potential of your project's specific geographic area!</p>
           </div>
         </div>
       </div>
@@ -277,7 +278,7 @@
                     <h4 class="subheading">Our Humble Beginnings</h4>
                   </div>
                   <div class="timeline-body">
-                    <p class="text-muted">AtmoVision filed with the State of Texas as a nonprofit organization.  Article 5 of AtmoVision's purpose begins, "a proponent for the scientific education and encouragement of individual involvement and activism." </p>
+                    <p class="text-muted">ATX Science filed with the State of Texas as a nonprofit organization.  Article 5 of ATX Science's purpose begins, "a proponent for the scientific education and encouragement of individual involvement and activism." </p>
                   </div>
                 </div>
               </li>
@@ -302,10 +303,10 @@
                 <div class="timeline-panel">
                   <div class="timeline-heading">
                     <h4>October 2018</h4>
-                    <h4 class="subheading">AtmoVision Files for 501(c)3 status</h4>
+                    <h4 class="subheading">ATX Science Files for 501(c)3 status</h4>
                   </div>
                   <div class="timeline-body">
-                    <p class="text-muted">Pursuing our goal to become the leading innovator in utilizing the latest technology to educate, advocate, and build smart networks for air quality awareness, AtmoVision files for 501(c)3 status.</p>
+                    <p class="text-muted">Pursuing our goal to become the leading innovator in utilizing the latest technology to educate, advocate, and build smart networks for air quality awareness, ATX Science files for 501(c)3 status.</p>
                   </div>
                 </div>
               </li>
@@ -419,17 +420,17 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <span class="copyright">Copyright &copy; AtmoVision 2018.<br>Images CC-BY-SA-4.0 license. <p> Please contact us using social media:</span>
+            <span class="copyright">Copyright &copy; ATX Science 2024.<br>Images CC-BY-SA-4.0 license. <p> Please contact us using social media:</span>
           </div>
           <div class="col-md-6">
             <ul class="list-inline social-buttons">
               <li class="list-inline-item">
-                <a href="https://www.twitter.com/atmovision">
+                <a href="https://www.x.com">
                   <i class="fab fa-twitter"></i>
                 </a>
               </li>
               <li class="list-inline-item">
-                <a href="https://www.facebook.com/atmovision">
+                <a href="https://www.facebook.com">
                   <i class="fab fa-facebook-f"></i>
                 </a>
               </li>
@@ -458,7 +459,7 @@
                   <h2 class="text-uppercase">Mission</h2>
                   <p class="item-intro text-muted">Protecting the Air We Breath</p>
                   <img class="img-fluid d-block mx-auto" src="img/portfolio/01-full.jpg" alt="">
-                  <p>AtmoVision is a proponent for the scientific education and encouragement of individual involvement and activism regarding ecology. AtmoVision works to advance the local, state, and federal education system as well as the science regarding air quality. AtmoVision’s work helps to preserve clean air, which helps to increase overall community health.  Our programs include sending out ambassadors to raise social consciousness about the cause on a local and global level, and to hold fundraising events in order to provide assistance to those communities with heightened pollution risks due to industry, transportation, or other human-induced pollution causing activities.
+                  <p>ATX Science is a proponent for the scientific education and encouragement of individual involvement and progress. ATX Science works to advance the local, state, and federal education system as well as the science regarding scientific innovation. ATX Science’s work helps to advance technological infrastructure, which helps to increase overall community outcomes.  Our programs include sending out ambassadors to raise social consciousness about the cause on a local and global level, and to hold fundraising events in order to provide assistance to those communities with heightened risks due to industry, transportation, or other circumstances.
 				  </p>
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-times"></i>
@@ -488,7 +489,7 @@
                   <h2 class="text-uppercase">Vision</h2>
                   <p class="item-intro text-muted">To Innovate and to Inspire Innovation</p>
                   <img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt="">
-                  <p>Atmovision aims to positively affect communities at local, state, federal, and international scales.  Air quality impacts our lives at all scales, and there is ample room for improvement at all levels.  We aspire to utilize technology to bridge scientific gaps and transcend socio-economic circumstances.  Clean breathable air is an inalienable right and we are committed to the task of advocating for clean air until all air-breathing life has clean and breathable air.</p>
+                  <p>ATX Science aims to positively affect communities at local, state, federal, and international scales.  Extenuating circumstances impact our lives at all scales, and there is ample room for improvement at all levels.  We aspire to utilize technology to bridge scientific gaps and transcend socio-economic circumstances.  We are committed to the task of advocating for accessible and robust technology solutions until all people are afforded the same quality solutions.</p>
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-times"></i>
                     Close Window</button>
@@ -546,7 +547,7 @@
                   <h2 class="text-uppercase">Sustainability</h2>
                   <p class="item-intro text-muted">Passion for Ecology Meets Technology</p>
                   <img class="img-fluid d-block mx-auto" src="img/portfolio/04-full.jpg" alt="">
-                  <p>Many air quality technologies deployed today are high-cost, high-upkeep, and immobile.  Technology has improved at a pace that has far exceeded widespread implementation.  Some cities nearing 1,000,000 population have 6 or less air quality sensors across their Geographic area.  AtmoVision leverages the latest technologies which drive down costs while increasing data gathering capability at spatial and temporal scales.  We can do this while maintaining or more often improving accuracy and efficiency of gathering and analyzing data. </p>
+                  <p>Many air quality technologies deployed today are high-cost, high-upkeep, and immobile.  Technology has improved at a pace that has far exceeded widespread implementation.  Some cities nearing 1,000,000 population have 6 or less air quality sensors across their Geographic area.  ATX Science leverages the latest technologies which drive down costs while increasing data gathering capability at spatial and temporal scales.  We can do this while maintaining or more often improving accuracy and efficiency of gathering and analyzing data. </p>
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-times"></i>
                     Close Window</button>
