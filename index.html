@@ -31,7 +31,7 @@
     <link href="css/agency.min.css" rel="stylesheet">
 
     <style>
-    #dynamic-text {
+    #dynamic-text1 {
     color: #000000; /* Ensures the text is black */
     transition: opacity 0.5s ease-in-out;
     min-height: 100px; /* Sets a minimum height */
@@ -43,7 +43,7 @@
     z-index: 10; /* Brings text to the front */
     }
 
-    #dynamic-text.fade-in {
+    #dynamic-text1.fade-in {
     opacity: 1; /* Fully opaque when the class is added */
     }
     </style>
@@ -58,7 +58,7 @@
     ];
 
     let currentIndex = 0;
-    const textElement = document.getElementById('dynamic-text');
+    const textElement = document.getElementById('dynamic-text1');
 
     function updateText() {
       textElement.classList.remove('fade-in');
@@ -126,7 +126,7 @@
         <div class="row">
           <div class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase">Services</h2>
-            <h3 class="section-subheading text-muted" id="dynamic-text">Loading...</h3>
+            <h3 class="section-subheading text-muted" id="dynamic-text1">Loading...</h3>
           </div>
         </div>
         <div class="row text-center">
