@@ -1,6 +1,6 @@
 {
-    "name": "AtmoVision Progessive Web Application",
-    "short_name": "AtmoVision",
+    "name": "ATX Science Progessive Web Application",
+    "short_name": "ATX Science",
     "start_url": "index.html?utm_source=homescreen",
     "scope": "./",
     "icons": [
